@@ -1,0 +1,36 @@
+
+- name: Configure VM
+  hosts: testing
+  become: yes
+  gather_facts: true
+  tasks:
+    - name: install pip
+      apt:
+        name: python-pip
+        state: present
+        update_cache: yes
+
+    - name: install docker 
+      shell: sudo apt install docker.io -y
+    - name: install docker using pip
+      shell: pip install docker
+
+    - pause:
+        minutes: 5
+
+    - name: pull a docker image
+      docker_image:
+        name: hello-world
+        source: pull
+      become_user: root
+
+    - name: create docker container with image
+      docker_container:
+        name: testcontainer
+        image: hello-world
+        state: present
+
+    - name: Reboot
+      reboot:
+        
+
