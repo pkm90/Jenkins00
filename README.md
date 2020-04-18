@@ -10,13 +10,13 @@ There are two files:
 terraform file, aws00.tf
 - this script will provision and bring up an ec2 machine 
 - after the machine is up and running, it will take the machine's IP address and identifier and output it to a file 
-
+\n\n
 Ansible file, configure.yml
 - this script will take the output from previous file as it's host 
 - install things necessary to install docker (python, pip, etc) 
 - pull a docker image (hello-world) 
 - create a docker container using the image inside the previous ec2 machine and reboot 
-
+\n\n
 Assuming we have an existing Jenkins server, one can create a new job with the following shell commands:
 - export AWS_ACCESS_KEY_ID= <insert-key-id>
 - export AWS_SECRET_ACCESS_KEY= <insert-secret-access-key>
@@ -25,7 +25,7 @@ Assuming we have an existing Jenkins server, one can create a new job with the f
 - sudo --preserve-env terraform apply -auto-approve -lock=false
 - sudo ansible-playbook configure.yml -i machinehost --key-file "../../../.ssh/awstestpem.pem"
 
-
+---
 We end up with an EC2 machine with a docker container using the `hello-world` image.
 All brought up and configured automatically using a Jenkins job.
 
