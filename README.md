@@ -20,7 +20,7 @@ Ansible file, configure.yml
 Assuming we have an existing Jenkins server, one can create a new job with the following shell commands:
 - export AWS_ACCESS_KEY_ID= <insert-key-id>
 - export AWS_SECRET_ACCESS_KEY= <insert-secret-access-key>
-# the next command will be highly variable depending on the user's system
+#### the next command will be highly variable depending on the user's system
 - cd /home/pk/Documents/Projects/Jenkins00
 - sudo --preserve-env terraform apply -auto-approve -lock=false
 - sudo ansible-playbook configure.yml -i machinehost --key-file "../../../.ssh/awstestpem.pem"
