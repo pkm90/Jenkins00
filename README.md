@@ -20,11 +20,11 @@ This is for a project that will run in Jenkins. There are a few things you need 
 
 
 #### Assuming we have an existing Jenkins server, one can create a new job with the following shell commands:
-- export AWS_ACCESS_KEY_ID= `insert-key-id`
-- export AWS_SECRET_ACCESS_KEY= `insert-secret-access-key`
-- this command changes depending on the user's system: cd /home/pk/Documents/Projects/Jenkins00
-- sudo --preserve-env terraform apply -auto-approve -lock=false
-- sudo ansible-playbook configure.yml -i machinehost --key-file "../../../.ssh/awstestpem.pem"
+- `export AWS_ACCESS_KEY_ID= (insert-key-id)`
+- `export AWS_SECRET_ACCESS_KEY= (insert-secret-access-key)`
+- this command changes depending on the user's system: `cd /home/pk/Documents/Projects/Jenkins00`
+- `sudo --preserve-env terraform apply -auto-approve -lock=false`
+- `sudo ansible-playbook configure.yml -i machinehost --key-file "../../../.ssh/awstestpem.pem"`
 
 ---
 We end up with an EC2 machine with a docker container using the `hello-world` image.
